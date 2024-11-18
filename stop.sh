@@ -1,5 +1,5 @@
 #!/bin/bash
-#pg_dump -cC --inserts -U freecodecamp salon > salon.sql
+pg_dump -cC --inserts -U freecodecamp salon > salon.sql
 
 yes | sudo apt-get install rsync
 rsync -a --exclude={'.*','salongit'} ./ ./salongit
