@@ -19,17 +19,19 @@ echo "$SERVICE_ID) $SERVICE_NAME"
 done
 
 # ask and read answer
-read SERVICE_CHOICE
+read SERVICE_ID_SELECTED
 
 # check if service is number
-if [[ ! $SERVICE_CHOICE =~ ^[0-9]+$ ]]
+if [[ ! $SERVICE_ID_SELECTED =~ ^[0-9]+$ ]]
 # if service is not a number, send to main
 then
 MAIN_MENU "Please enter a number"
 else
 # if service is a number, check if it is the id of a service
-SERVICE_ID_SELECTED=$($PSQL "select name from services where service_id = $SERVICE_CHOICE")
-if [[ -z $SERVICE_ID_SELECTED  ]]
+SERVICE_NAME=$($PSQL "select regexp_replace(name, '^\s+\s+$', '', 'g') from services where service_id = $SERVICE_ID_SELECTED")
+#regexp_replace(eventdate, '^\s+|\s+$', '', 'g')
+echo "$SERVICE_NAME"
+if [[ -z $SERVICE_NAME  ]]
 then
 # if service doesn't exist, send back to main
 MAIN_MENU "That is not an existing service" 
@@ -50,10 +52,10 @@ echo -e "\nI don't have a record for that phone number, what's your name?"
 read CUSTOMER_NAME
 # insert into customer database
 INSERT_CUSTOMER_RESULT=$($PSQL "insert into customers(name, phone) values('$CUSTOMER_NAME','$CUSTOMER_PHONE')")
-else 
-# if it does exist 
-echo "What time would you like your cut, $CUSTOMER_NAME?"
 fi
+FORMATTED_SERVICE=$(echo "$SERVICE_NAME" | sed -E 's/^[ \t]*//;s/[ \t]*$//')
+
+echo "What time would you like your $FORMATTED_SERVICE, $CUSTOMER_NAME?"
 
 
 

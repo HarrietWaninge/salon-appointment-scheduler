@@ -183,6 +183,7 @@ INSERT INTO public.customers VALUES (4, 'FakeTime', '');
 INSERT INTO public.customers VALUES (9, '000-0000', 'Test');
 INSERT INTO public.customers VALUES (15, '0000', 'Hoppelepop');
 INSERT INTO public.customers VALUES (16, '555-5555', 'Harriet');
+INSERT INTO public.customers VALUES (17, '3', 'Joop');
 
 
 --
@@ -207,7 +208,7 @@ SELECT pg_catalog.setval('public.appointments_appointment_id_seq', 1, false);
 -- Name: customers_customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.customers_customer_id_seq', 16, true);
+SELECT pg_catalog.setval('public.customers_customer_id_seq', 17, true);
 
 
 --
