@@ -173,17 +173,38 @@ ALTER TABLE ONLY public.services ALTER COLUMN service_id SET DEFAULT nextval('pu
 -- Data for Name: appointments; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.appointments VALUES (1, 18, 2, '');
+INSERT INTO public.appointments VALUES (2, 18, 2, '');
+INSERT INTO public.appointments VALUES (3, 18, 1, '11');
+INSERT INTO public.appointments VALUES (4, 18, 2, '11pm');
+INSERT INTO public.appointments VALUES (7, 53, 1, '');
+INSERT INTO public.appointments VALUES (14, 53, 1, '');
+INSERT INTO public.appointments VALUES (19, 62, 3, '8am');
+INSERT INTO public.appointments VALUES (22, 53, 1, '');
+INSERT INTO public.appointments VALUES (27, 68, 3, '9');
+INSERT INTO public.appointments VALUES (28, 69, 3, '9am');
+INSERT INTO public.appointments VALUES (31, 53, 1, '');
+INSERT INTO public.appointments VALUES (36, 75, 5, '7');
+INSERT INTO public.appointments VALUES (39, 53, 1, '');
+INSERT INTO public.appointments VALUES (46, 53, 1, '');
+INSERT INTO public.appointments VALUES (51, 86, 3, '0');
+INSERT INTO public.appointments VALUES (52, 87, 2, '0');
 
 
 --
 -- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.customers VALUES (4, 'FakeTime', '');
-INSERT INTO public.customers VALUES (9, '000-0000', 'Test');
-INSERT INTO public.customers VALUES (15, '0000', 'Hoppelepop');
-INSERT INTO public.customers VALUES (16, '555-5555', 'Harriet');
-INSERT INTO public.customers VALUES (17, '3', 'Joop');
+INSERT INTO public.customers VALUES (18, '000-0000', 'Harriet');
+INSERT INTO public.customers VALUES (19, '2', 'hop');
+INSERT INTO public.customers VALUES (86, '0000', 'haa');
+INSERT INTO public.customers VALUES (87, '000000', 'j');
+INSERT INTO public.customers VALUES (22, 'FakeTime', '');
+INSERT INTO public.customers VALUES (53, '', '');
+INSERT INTO public.customers VALUES (62, '99', 'Heyyyyy');
+INSERT INTO public.customers VALUES (68, '0', 'Hoi');
+INSERT INTO public.customers VALUES (69, '9', 'Heyyyyyy');
+INSERT INTO public.customers VALUES (75, '00', 'Hoiiii');
 
 
 --
@@ -201,14 +222,14 @@ INSERT INTO public.services VALUES (5, 'trim');
 -- Name: appointments_appointment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.appointments_appointment_id_seq', 1, false);
+SELECT pg_catalog.setval('public.appointments_appointment_id_seq', 52, true);
 
 
 --
 -- Name: customers_customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.customers_customer_id_seq', 17, true);
+SELECT pg_catalog.setval('public.customers_customer_id_seq', 87, true);
 
 
 --
