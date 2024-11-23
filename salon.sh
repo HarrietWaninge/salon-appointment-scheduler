@@ -25,18 +25,12 @@ done
 # ask and read answer
 read SERVICE_ID_SELECTED
 
- case $SERVICE_ID_SELECTED in
-    1) HANDLE_SERVICE ;;
-    2) HANDLE_SERVICE ;;
-    3) HANDLE_SERVICE ;;
-    *) MAIN_MENU "Please enter a valid option." ;;
-  esac
-
 # check if service is number
 if [[ ! $SERVICE_ID_SELECTED =~ ^[0-9]+$ ]]
   # if service is not a number, send to main
   then
   MAIN_MENU "Please enter a number"
+  return
   else
   # if service is a number, check if it is the id of a service
   SERVICE_NAME=$($PSQL "select name from services where service_id = $SERVICE_ID_SELECTED")
@@ -45,6 +39,7 @@ if [[ ! $SERVICE_ID_SELECTED =~ ^[0-9]+$ ]]
     then
     # if service doesn't exist, send back to main
     MAIN_MENU "That is not an existing service" 
+    return 
   fi
 fi
 # customer has entered valid service.
